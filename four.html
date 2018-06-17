@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSON</title>
+</head>
+<body>
+  <h1>Json</h1>
+  <script type="text/javascript">
+    var myObj = {
+      "friends":[{
+        "firstName":"Mike"
+        ,"lastName":"Jones"
+      },{
+        "firstName":"John"
+        ,"lastName":"Smith"
+      },{
+        "firstName":"Sanjay"
+        ,"lastName":"Parihar"
+      }]
+    }
+
+    var users = myObj.friends;
+
+    for(var x in users){
+      console.log(users[x].firstName + ' ' + users[x].lastName)
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!-- outputing the data output in front end -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSON</title>
+</head>
+<body>
+  <h1>Json</h1>
+  <div id="output"> </div>
+  <script type="text/javascript">
+    var myObj = {
+      "friends":[{
+        "firstName":"Mike"
+        ,"lastName":"Jones"
+      },{
+        "firstName":"John"
+        ,"lastName":"Smith"
+      },{
+        "firstName":"Sanjay"
+        ,"lastName":"Parihar"
+      }]
+    }
+    var html = "";
+
+    myObj.friends.splice(1,0,{
+      "firstName":"New"
+      ,"lastName":"Person"
+    })
+
+    var output = document.getElementById('output');
+    for(x=0; x<myObj.friends.length;x++){
+      html += (Number(x) + 1)+ '.' + ' ' +
+      myObj.friends[x].firstName + ' ' +
+      myObj.friends[x].lastName + '<br>'
+  }
+
+     output.innerHTML = html;
+//Another way of doing the same thing...
+  myObj.friends.forEach(function(item){
+    output.innerHTML += item.firstName + ' ' +
+      item.lastName + '<br>'
+  })
+
+
+  </script>
+</body>
+</html>
