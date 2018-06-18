@@ -1,0 +1,25 @@
+<!-- outputing the data output in front end -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSON</title>
+</head>
+<body>
+  <h1>Json</h1>
+  <div id="output"> </div>
+  <script type="text/javascript">
+    var data = '{"results":[{"gender":"male","name":{"title":"mr","first":"christian","last":"thomsen"},"location":{"street":"7954 solvænget","city":"viby sj.","state":"danmark","postcode":39911},"email":"christian.thomsen@example.com","login":{"username":"crazyduck906","password":"hotmail1","salt":"dsz6YdbR","md5":"35ccf1bad8ee8ad5d9913eea20d084f0","sha1":"f7e435fd993eb0f661290bf826060ed16d125b73","sha256":"0ba1621efceadd89582c9ba10f4d402a678c65fded856bc8d0056a9c386db2f4"},"dob":"1964-02-06 11:29:20","registered":"2005-09-13 09:26:22","phone":"90970274","cell":"88071003","id":{"name":"CPR","value":"575030-7537"},"picture":{"large":"https://randomuser.me/api/portraits/men/2.jpg","medium":"https://randomuser.me/api/portraits/med/men/2.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/2.jpg"},"nat":"DK"}],"info":{"seed":"febb55afc623ac33","results":1,"page":1,"version":"1.1"}}';
+
+    var dataJSON = JSON.parse(data);
+    var persons = dataJSON.results[0];
+    var output = document.querySelector('#output')
+    var html = persons.name.first + '' + persons.name.last
+    html +='<img src="+persons.picture.thumbnail+">';
+    output.innerHTML = html;
+
+    var strMe = JSON.stringify(dataJSON);
+    console.log(strMe);
+  </script>
+</body>
+</html>

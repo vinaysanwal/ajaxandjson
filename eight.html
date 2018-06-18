@@ -1,0 +1,42 @@
+<!-- outputing the data output in front end -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSON</title>
+</head>
+<body>
+  <h1>Json</h1>
+  <div id="output"> </div>
+  <form id="myForm">
+    <input type="text" name="First" value="vinay"><br>
+    <input type="text" name="last" value="sanwal"><br>
+    <input type="text" name="company" value="google"><br>
+    <input type="text" name="email" value="google@gmail.com"><br>
+    <input type="submit" value="submit">
+  </form>
+
+  <script type="text/javascript">
+    var myForm = document.getElementById("myForm");
+    myForm.addEventListener("submit",function(e){
+      e.preventDefault();
+      var data = formData(myForm);
+      console.log(data)
+    })
+
+    function formData(form){
+      var el = form.querySelectorAll("input[type='text']");
+      var myData = {};
+      for(var x=0;x<el.length;x++){
+        var name = el[x].name;
+        var value = el[x].value;
+        console.log(name,value)
+        myData[name] = value
+      }
+      return myData;
+    }
+
+
+  </script>
+</body>
+</html>
